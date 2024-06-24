@@ -50,9 +50,9 @@ nav a:hover {
     margin-bottom: 2rem;
 }
 .image-container img {
-    width: 150px;
+    width: 200px;
     height: 150px;
-    border-radius: 50%;
+    border-radius: 60%;
     border: 2px solid #ddd;
 }
 .contact-info a {
