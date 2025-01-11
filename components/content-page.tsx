@@ -1,67 +1,70 @@
-import Link from "next/link"
-import { notFound } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChevronLeft } from 'lucide-react'
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Github, Globe } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import type { ContentPageProps } from "@/types/content";
 
-interface ContentPageProps {
-  type: 'project' | 'note' | 'blog';
-  slug: string;
-  data: Record<string, {
-    title: string;
-    content: string;
-    date?: string;
-    tags?: string[];
-    [key: string]: any;
-  }>;
-}
-
-export default function ContentPage({ type, slug, data }: ContentPageProps) {
-  const item = data[slug];
-
-  if (!item) {
-    notFound();
-  }
-
+export function ContentPage({ content, type }: ContentPageProps) {
   return (
-    <main className="min-h-screen p-4 md:p-8 max-w-4xl mx-auto font-mono">
-      <Button variant="ghost" asChild className="mb-4">
-        <Link href="/" className="inline-flex items-center">
-          <ChevronLeft className="w-4 h-4 mr-2" aria-hidden="true" />
-          <span>Back to Home</span>
-        </Link>
-      </Button>
-
+    <main className="min-h-screen p-4 md:p-8 max-w-4xl mx-auto">
       <Card className="bg-secondary/50">
         <CardHeader>
-          <CardTitle className="text-2xl md:text-3xl font-bold">
-            {item.title}
-          </CardTitle>
-          {item.date && (
-            <p className="text-sm text-muted-foreground">
-              {type === 'blog' ? 'Published' : 'Last updated'}: {item.date}
-            </p>
-          )}
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="prose prose-gray dark:prose-invert max-w-none">
-            {item.content}
-          </div>
-          {item.tags && (
-            <div className="flex flex-wrap gap-2 mt-4">
-              {item.tags.map((tag: string) => (
-                <span
-                  key={tag}
-                  className="px-2 py-1 bg-primary/10 rounded text-sm"
-                >
-                  {tag}
-                </span>
-              ))}
+          <CardTitle className="text-2xl md:text-3xl">{content.title}</CardTitle>
+          {type === 'blog' && content.readingTime && (
+            <div className="flex gap-2 text-sm text-muted-foreground">
+              <time>{new Date(content.date).toLocaleDateString()}</time>
+              <span>· {content.readingTime} read</span>
             </div>
           )}
+          {type === 'note' && content.category && (
+            <div className="text-sm text-muted-foreground">
+              Category: {content.category}
+            </div>
+          )}
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            {content.description && <p>{content.description}</p>}
+            
+            {type === 'project' && content.tech && (
+              <div className="flex flex-wrap gap-2">
+                {content.tech.map((tech) => (
+                  <span key={tech} className="bg-primary/10 px-2 py-1 rounded text-sm">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
+            
+            {type === 'project' && (
+              <div className="flex gap-4">
+                {content.github && (
+                  <Button variant="outline" asChild>
+                    <Link href={content.github}>
+                      <Github className="w-4 h-4 mr-2" />
+                      GitHub
+                    </Link>
+                  </Button>
+                )}
+                {content.demo && (
+                  <Button variant="outline" asChild>
+                    <Link href={content.demo}>
+                      <Globe className="w-4 h-4 mr-2" />
+                      Demo
+                    </Link>
+                  </Button>
+                )}
+              </div>
+            )}
+            
+            <div className="prose dark:prose-invert max-w-none">
+              <ReactMarkdown>{content.content}</ReactMarkdown>
+            </div>
+          </div>
         </CardContent>
       </Card>
     </main>
-  )
+  );
 }
 

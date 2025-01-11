@@ -20,4 +20,20 @@ export interface Note extends ContentMeta {
 
 export interface Blog extends ContentMeta {
   readingTime?: string;
+}
+
+export interface ContentPageProps {
+  content: {
+    title: string;
+    description?: string;
+    date: string;
+    tags?: string[];
+    category?: string;
+    readingTime?: string;
+    content: string;
+    tech?: string[];
+    github?: string;
+    demo?: string;
+  };
+  type: 'project' | 'note' | 'blog';
 } 
