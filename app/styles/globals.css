@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-space-mono: 'Space Mono', monospace;
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image: linear-gradient(to right, rgb(var(--secondary) / 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgb(var(--secondary) / 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}

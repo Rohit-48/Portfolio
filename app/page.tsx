@@ -1,101 +1,158 @@
-import Image from "next/image";
+import { Github } from 'lucide-react'
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { getAllProjects, getAllNotes, getAllBlogs } from '@/lib/content';
+import { XIcon } from '@/components/icons/x-icon'
 
-export default function Home() {
+export default function Portfolio() {
+  const projects = getAllProjects();
+  const notes = getAllNotes();
+  const blogs = getAllBlogs();
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="min-h-screen p-4 md:p-8 max-w-4xl mx-auto font-mono">
+      <div className="flex justify-between items-center mb-8">
+        <Card className="bg-secondary/50">
+          <CardHeader>
+            <CardTitle className="text-2xl md:text-3xl font-bold">
+              Rohit.cpp
+            </CardTitle>
+          </CardHeader>
+        </Card>
+        <ThemeToggle />
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      <div className="grid gap-8">
+        <section className="grid md:grid-cols-2 gap-4 items-start">
+          <Card className="bg-secondary/50">
+            <CardContent className="pt-6">
+              <h2 className="font-bold mb-4">I&apos;m a Computer Science student</h2>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center">
+                  <span className="bg-primary/10 px-2 py-1 rounded">Improving Math & Physics</span>
+                </li>
+                <li className="flex items-center">
+                  <span className="bg-primary/10 px-2 py-1 rounded">Web Development & Design</span>
+                </li>
+                <li className="flex items-center">
+                  <span className="bg-primary/10 px-2 py-1 rounded">Going towards AI/ML, Starting Soon.....</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+          <div className="flex justify-end items-start">
+            <div className="text-6xl transform -scale-y-100" aria-hidden="true">A</div>
+          </div>
+        </section>
+
+        <section id="projects">
+          <Card className="bg-secondary/50">
+            <CardHeader>
+              <CardTitle className="font-bold text-xl">Projects</CardTitle>
+            </CardHeader>
+            <CardContent className="grid sm:grid-cols-2 gap-4">
+              {projects.map((project) => (
+                <Link 
+                  key={project.slug} 
+                  href={`/projects/${project.slug}`}
+                  className="group"
+                >
+                  <div className="p-4 rounded-lg bg-background/50 hover:bg-primary hover:text-primary-foreground transition-colors">
+                    <h3 className="font-medium">{project.title}</h3>
+                    <p className="text-sm text-muted-foreground group-hover:text-primary-foreground/70">
+                      {project.description}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </CardContent>
+          </Card>
+        </section>
+
+        <section id="notes">
+          <Card className="bg-secondary/50">
+            <CardHeader>
+              <CardTitle className="font-bold text-xl">My Notes</CardTitle>
+            </CardHeader>
+            <CardContent className="grid sm:grid-cols-2 gap-4">
+              {notes.map((note) => (
+                <Link 
+                  key={note.slug} 
+                  href={`/notes/${note.slug}`}
+                  className="group"
+                >
+                  <div className="p-4 rounded-lg bg-background/50 hover:bg-primary hover:text-primary-foreground transition-colors">
+                    <h3 className="font-medium">{note.title}</h3>
+                    <p className="text-sm text-muted-foreground group-hover:text-primary-foreground/70">
+                      {note.description}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </CardContent>
+          </Card>
+        </section>
+
+        <section id="blogs">
+          <Card className="bg-secondary/50">
+            <CardHeader>
+              <CardTitle className="font-bold text-xl">My Blogs</CardTitle>
+            </CardHeader>
+            <CardContent className="grid sm:grid-cols-2 gap-4">
+              {blogs.map((blog) => (
+                <Link 
+                  key={blog.slug} 
+                  href={`/blogs/${blog.slug}`}
+                  className="group"
+                >
+                  <div className="p-4 rounded-lg bg-background/50 hover:bg-primary hover:text-primary-foreground transition-colors">
+                    <h3 className="font-medium">{blog.title}</h3>
+                    <p className="text-sm text-muted-foreground group-hover:text-primary-foreground/70">
+                      {blog.description}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </CardContent>
+          </Card>
+        </section>
+
+        <footer className="border-t pt-8 mt-8">
+          <div className="flex flex-col sm:flex-row justify-between gap-4">
+            <div className="flex gap-4">
+              <Button variant="ghost" asChild>
+                <Link 
+                  href="https://github.com/Rohit-48" 
+                  className="inline-flex items-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="w-4 h-4 mr-2" aria-hidden="true" />
+                  <span>GitHub</span>
+                </Link>
+              </Button>
+              <Button variant="ghost" asChild>
+                <Link 
+                  href="https://x.com/rohitcpp" 
+                  className="inline-flex items-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <XIcon className="w-4 h-4 mr-2" aria-hidden="true" />
+                  <span>X</span>
+                </Link>
+              </Button>
+            </div>
+            <div className="text-right space-y-1 text-sm">
+              <p className="font-medium">Keep Your Heart Blaze</p>
+              <p className="text-muted-foreground">Spread Love</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+  )
 }
+
