@@ -1,9 +1,30 @@
 ---
-title: "How to Get Into CS"
-description: "A comprehensive guide for beginners starting their journey in Computer Science"
-date: "2024-03-20"
+title: "Getting Started with Computer Science"
+description: "A comprehensive guide for beginners entering the world of CS"
+date: "2024-03-21"
 tags: ["Computer Science", "Education", "Programming"]
-readingTime: "10 min"
+readingTime: "8 min"
 ---
 
-Blog content about getting into Computer Science... 
+# Getting Started with Computer Science
+
+## Why Computer Science?
+Computer Science is more than just programming - it's about problem-solving, logical thinking, and creating solutions that impact the world.
+
+## Essential Topics to Learn
+1. Programming Fundamentals
+2. Data Structures and Algorithms
+3. Computer Architecture
+4. Operating Systems
+
+## Learning Path
+- Start with Python or JavaScript
+- Build small projects
+- Practice problem-solving
+- Join coding communities
+
+## Resources
+- Online platforms (Coursera, edX)
+- Programming practice sites
+- Open source projects
+- CS communities 

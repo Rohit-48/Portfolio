@@ -1,7 +1,7 @@
 ---
 title: "Discrete Mathematics"
-description: "Comprehensive notes on discrete mathematics fundamentals"
-date: "2024-03-20"
+description: "Essential concepts in discrete mathematics for computer science"
+date: "2024-03-21"
 tags: ["Mathematics", "Computer Science"]
 category: "Mathematics"
 ---
@@ -9,13 +9,19 @@ category: "Mathematics"
 # Discrete Mathematics
 
 ## Set Theory
-- Basic concepts
-- Operations on sets
-- Properties of sets
+- Basic Set Operations
+- Relations and Functions
+- Cardinality
+- Set Proofs
 
-## Logic
-- Propositional logic
-- Predicate logic
-- Truth tables
+## Logic and Proofs
+- Propositional Logic
+- Predicate Logic
+- Methods of Proof
+- Mathematical Induction
 
-## More content... 
+## Graph Theory
+- Graph Fundamentals
+- Trees and Forests
+- Graph Algorithms
+- Applications 

@@ -1,7 +1,7 @@
 ---
 title: "Data Structures and Algorithms"
-description: "Comprehensive notes on DSA fundamentals and implementations"
-date: "2024-03-20"
+description: "Comprehensive guide to DSA fundamentals and implementations"
+date: "2024-03-21"
 tags: ["DSA", "Programming", "Algorithms"]
 category: "Computer Science"
 ---
@@ -9,13 +9,21 @@ category: "Computer Science"
 # Data Structures and Algorithms
 
 ## Arrays and Strings
-- Basic operations
-- Common patterns
-- Problem-solving techniques
+- Basic operations and manipulation
+- Common patterns and techniques
+- Problem-solving approaches
 
 ## Linked Lists
-- Singly linked lists
+- Singly linked lists implementation
 - Doubly linked lists
-- Implementation examples
+- Common operations and use cases
 
-## More content...
+## Trees and Graphs
+- Binary trees and BST
+- Graph representations
+- Traversal algorithms
+
+## Advanced Topics
+- Dynamic Programming
+- Greedy Algorithms
+- Backtracking
